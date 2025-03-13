@@ -41,24 +41,23 @@
 </nav>
 
 {% block header %}
-    <header class="bg-secondary text-white">
-        <div class="container text-center">
-            <h1>{% trans "Блог Алексея Кутепова" %}</h1>
-            <p class="lead">{% trans "Разработка программного обеспечения" %}</p>
-            <form class="text-center" action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                <input name="next" type="hidden" value="{{ redirect_to }}">
-                {% get_current_language as LANGUAGE_CODE %}
-                {% get_available_languages as LANGUAGES %}
-                {% get_language_info_list for LANGUAGES as languages %}
+<header class="bg-dark text-white mini-header">
+    <div class="container text-center">
+        <h2>{% trans "Изготовление гитарных педалей эффектов" %}</h2>
+        <form class="text-center" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
 
-                {% for language in languages %}
-                    <button type="submit" name="language" value="{{ language.code }}"
-                            class="btn btn-link text-light">{{ language.name_local }} ({{ language.code }})
-                    </button>
-                {% endfor %}
-            </form>
-        </div>
-    </header>
+            {% for language in languages %}
+                <button type="submit" name="language" value="{{ language.code }}"
+                        class="btn btn-link text-light">{{ language.name_local }} ({{ language.code }})
+                </button>
+            {% endfor %}
+        </form>
+    </div>
+</header>
 {% endblock %}
 
 
