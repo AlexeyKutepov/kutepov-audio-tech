@@ -4,9 +4,9 @@
     <meta name="description"
           content={{ post.description }}>
 {% endblock %}
-{% block title %}{% trans "Блог Алексея Кутепова: " %}{{ post.title }}{% endblock title %}
+{% block title %}{% trans "Блог Kutepov Audio Tech: " %}{{ post.title }}{% endblock title %}
 {% block header %}
-    <div class="bg-secondary text-white mini-header">
+    <div class="bg-dark text-white mini-header">
         <div class="container text-center">
             <h1>{{ post.title }}</h1>
             <form class="text-center" action="{% url 'set_language' %}" method="post">{% csrf_token %}
@@ -48,15 +48,6 @@
                     <p class="lead">{{ post.short_text }}</p>
                     <div itemprop="articleBody">{{ post.content|safe }}</div>
                     <hr>
-                    <!-- Comments Form -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
-                            <script src="//yastatic.net/share2/share.js"></script>
-                            <div class="ya-share2"
-                                 data-services="vkontakte,facebook,odnoklassniki,gplus,twitter,blogger,reddit,linkedin,telegram"></div>
-                        </div>
-                    </div>
                 </div>
 
             </div>

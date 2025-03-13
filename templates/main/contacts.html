@@ -2,11 +2,11 @@
 {% load static i18n %}
 {% block meta %}
     <meta name="description"
-          content={% trans "Контакты Алексея Кутепова и форма обратной связи" %}>
+          content={% trans "Контакты Kutepov Audio Tech и форма обратной связи" %}>
 {% endblock %}
 {% block title %}{% trans "Контакты" %}{% endblock title %}
 {% block header %}
-    <div class="bg-secondary text-white mini-header">
+    <div class="bg-dark text-white mini-header">
         <div class="container text-center">
             <h1>{% trans "Контакты" %}</h1>
             <form class="text-center" action="{% url 'set_language' %}" method="post">{% csrf_token %}
