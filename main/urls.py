@@ -22,12 +22,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('about/', views.contacts, name='about'),
     path('contacts/', views.contacts, name='contacts'),
-    path('courses/', views.courses, name='courses'),
-    path('courses/javabase/', views.java_base, name='java_base'),
-    path('courses/javabase/<url>/', views.java_base_lesson, name='java_base_lesson'),
     path('subscribe/', views.subscribe, name='subscribe'),
     path('unsubscribe/<id>/', views.unsubscribe, name='unsubscribe'),
-    path('blog/category/it/', views.it, name='it'),
-    path('blog/category/travel/', views.travel, name='travel'),
+    path('blog/category/diy/', views.diy, name='diy'),
     path('blog/<url>/', views.post, name='post'),
 ]

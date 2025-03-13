@@ -21,7 +21,7 @@ def index(request):
     :param request:
     :return:
     """
-    it_list = Post.objects.filter(is_published=True, category=Post.category2).order_by('-datetime')
+    it_list = Post.objects.filter(is_published=True, category=Post.general_category).order_by('-datetime')
     it_len = len(it_list)
     return render(
         request,
@@ -106,13 +106,13 @@ def unsubscribe(request, id):
             return JsonResponse({"result": "error"})
 
 
-def it(request):
+def diy(request):
     """
     Категория it
     :param request:
     :return:
     """
-    post_list = Post.objects.filter(is_published=True, category=Post.category2).order_by('-datetime')
+    post_list = Post.objects.filter(is_published=True, category=Post.diy_category).order_by('-datetime')
     return render(
         request,
         "main/it.html",
@@ -121,74 +121,9 @@ def it(request):
         }
     )
 
-
-def travel(request):
-    """
-    Категория путешествия
-    :param request:
-    :return:
-    """
-    post_list = Post.objects.filter(is_published=True, category=Post.category4).order_by('-datetime')
-    return render(
-        request,
-        "main/travel.html",
-        {
-            "post_list": post_list
-        }
-    )
-
-
 def post(request, url):
     """
     Пост
-    :param request:
-    :param url:
-    :return:
-    """
-    post_list = Post.objects.filter(url=url).exclude(category=Post.category5)
-    if not post_list or len(post_list) == 0:
-        raise Http404
-    return render(
-        request,
-        "main/post.html",
-        {
-            "post": post_list[0]
-        }
-    )
-
-
-def courses(request):
-    """
-    Курсы
-    :param request:
-    :return:
-    """
-    return render(
-        request,
-        "main/courses.html",
-        {}
-    )
-
-
-def java_base(request):
-    """
-    Java. Базовый курс
-    :param request:
-    :return:
-    """
-    post_list = Post.objects.filter(is_published=True, category=Post.category5).order_by('datetime')
-    return render(
-        request,
-        "main/java_base.html",
-        {
-            "post_list": post_list
-        }
-    )
-
-
-def java_base_lesson(request, url):
-    """
-    Урок
     :param request:
     :param url:
     :return:

@@ -34,17 +34,11 @@ class Post(models.Model):
     """
     Пост
     """
-    category1 = 'Проекты'
-    category2 = 'IT'
-    category3 = 'Мастерская'
-    category4 = 'Путешествия'
-    category5 = 'Java Base'
+    general_category = 'Информация'
+    diy_category = 'DIY'
     category_classifier = (
-        (category1, 'Проекты'),
-        (category2, 'IT'),
-        (category3, 'Мастерская'),
-        (category4, 'Путешествия'),
-        (category5, 'Java Base')
+        (general_category, 'Информация'),
+        (diy_category, 'DIY'),
     )
     title = models.CharField(max_length=500)
     url = models.CharField(max_length=500)
