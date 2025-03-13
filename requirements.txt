@@ -1,0 +1,6 @@
+Django==3.0.5
+pytz==2019.3
+Pillow==11.1.0
+django-ckeditor==5.9.0
+django-yaturbo==1.0.0
+bleach==3.2.1

@@ -1,0 +1,83 @@
+.section-title,
+.entry-title {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  margin: 0px 0 25px;
+  text-align: center;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 36px;
+  font-size: 2.25rem;
+  letter-spacing: 1px;
+}
+.section-title a,
+.entry-title a {
+  color: #333333;
+}
+.section-title span,
+.entry-title span {
+  display: inline-block;
+  position: relative;
+}
+.section-title span:before,
+.entry-title span:before,
+.section-title span:after,
+.entry-title span:after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  top: .53em;
+  width: 400%;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+.section-title span:before,
+.entry-title span:before {
+  right: 100%;
+  margin-right: 45px;
+}
+.section-title span:after,
+.entry-title span:after {
+  left: 100%;
+  margin-left: 45px;
+}
+.entry-header .entry-meta {
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-style: italic;
+  font-weight: normal;
+  color: #a5a5a5;
+  margin: 0 0 15px 0;
+}
+.entry-header .entry-meta a {
+  color: #a5a5a5;
+}
+.entry-content {
+  margin: 0 0 60px 0;
+}
+.entry-content h2 {
+  line-height: 1.2;
+  font-size: 30px;
+  font-size: 1.875rem;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.block_200 {
+    overflow: hidden; /* Полоса прокрутки при необходимости */
+    height: 200px; /* Высота */
+    max-height: 200px; /* Максимальная высота */
+
+}
+
+.block_200:before { /* затухание текста */
+    content: "";
+    display: block;
+    height: 20px;
+    position: relative;
+    top: 160px;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff 75%)
+}

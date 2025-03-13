@@ -1,0 +1,11 @@
+#for all
+User-agent: *
+Disallow: /admin/
+Disallow: /manual/
+
+#for yandex
+User-agent: Yandex
+Disallow: /admin/
+Disallow: /manual/
+Sitemap: http://akutepov.ru/sitemap.xml
+Host: akutepov.ru

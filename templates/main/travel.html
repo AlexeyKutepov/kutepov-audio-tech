@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block meta %}
+    <meta name="description"
+          content={% trans "Я очень люблю путешествовать и стараюсь это делать регулярно, поэтому создал отдельную страницу с фото-отчётами о моих поездках. Приятного просмотра!" %}>
+{% endblock %}
+{% block title %}{% trans "Путешествия" %}{% endblock title %}
+{% block header %}
+    <div class="bg-primary text-white mini-header">
+        <div class="container text-center">
+            <h1>{% trans "Путешествия" %}</h1>
+            <form class="text-center" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+
+                {% for language in languages %}
+                    <button type="submit" name="language" value="{{ language.code }}"
+                            class="btn btn-link text-light">{{ language.name_local }} ({{ language.code }})
+                    </button>
+                {% endfor %}
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <section id="travel">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    {% for post in post_list %}
+                        <div class="card mb-4">
+                            <img class="card-img-top" src="{{ post.title_image.url }}" alt="">
+                            <div class="card-body">
+                                <h2 class="card-title"><a href="{% url "post" post.url %}">{{ post.title }}</a></h2>
+                                <p class="card-text">{{ post.short_text }}</p>
+                                <a href="{% url "post" post.url %}" class="btn btn-primary">{% trans "Читать далее" %} &rarr;</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                                {% trans "Дата публикации" %} {{ post.datetime|date:"d.m.Y" }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
