@@ -21,13 +21,13 @@ def index(request):
     :param request:
     :return:
     """
-    it_list = Post.objects.filter(is_published=True, category=Post.general_category).order_by('-datetime')
-    it_len = len(it_list)
+    general_list = Post.objects.filter(is_published=True, category=Post.general_category).order_by('-datetime')
+    general_len = len(general_list)
     return render(
         request,
         "main/index.html",
         {
-            "it_list": it_list[:it_len],
+            "general_list": general_list[:general_len],
         }
     )
 
@@ -108,14 +108,14 @@ def unsubscribe(request, id):
 
 def diy(request):
     """
-    Категория it
+    Категория DIY
     :param request:
     :return:
     """
     post_list = Post.objects.filter(is_published=True, category=Post.diy_category).order_by('-datetime')
     return render(
         request,
-        "main/it.html",
+        "main/diy.html",
         {
             "post_list": post_list
         }
