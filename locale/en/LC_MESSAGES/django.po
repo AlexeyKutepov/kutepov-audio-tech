@@ -1458,7 +1458,7 @@ msgstr ""
 #~ msgid "IT"
 #~ msgstr "IT"
 
-#~ msgid "Скоро на akutepov.ru!"
+#~ msgid "Скоро на kutepov-audio-tech.ru!"
 #~ msgstr "Coming soon!"
 
 #~ msgid "Узнать первым!"

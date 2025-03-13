@@ -8,7 +8,7 @@ from django.utils import timezone
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
-from akutepov import settings
+from kat import settings
 from main.forms import FeedbackForm, SubscribeForm
 from main.models import Feedback, Subscriber, Post
 
