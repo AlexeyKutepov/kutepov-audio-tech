@@ -6,23 +6,6 @@
 {% endblock %}
 {% block title %}{% trans "Контакты" %}{% endblock title %}
 {% block header %}
-    <div class="bg-dark text-white mini-header">
-        <div class="container text-center">
-            <h1>{% trans "Контакты" %}</h1>
-            <form class="text-center" action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                <input name="next" type="hidden" value="{{ redirect_to }}">
-                {% get_current_language as LANGUAGE_CODE %}
-                {% get_available_languages as LANGUAGES %}
-                {% get_language_info_list for LANGUAGES as languages %}
-
-                {% for language in languages %}
-                    <button type="submit" name="language" value="{{ language.code }}"
-                            class="btn btn-link text-light">{{ language.name_local }} ({{ language.code }})
-                    </button>
-                {% endfor %}
-            </form>
-        </div>
-    </div>
 {% endblock %}
 {% block content %}
     <section id="social-groups">
@@ -38,46 +21,6 @@
                         <li><h4><a href="https://vk.com/kutepov_audio_tech"><i class="fab fa-vk"></i>
                             https://vk.com/kutepov_audio_tech</a></h4></li>
                     </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="feedback">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <h2 class="section-title"><span>{% trans "Форма обратной связи" %}</span></h2>
-                    <p class="lead">{% trans "Кроме этого, Вы можете оставить мне сообщение через форму обратной связи:" %}</p>
-                    {% if is_send is null %}
-                    {% elif is_send %}
-                        <div class="alert alert-dismissible alert-success">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            <strong>{% trans "Сообщение успешно отправлено!" %}</strong> {% trans "Я Вам отвечу в ближайшее время" %}
-                        </div>
-                    {% else %}
-                        <div class="alert alert-dismissible alert-danger">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            <strong>{% trans "Ошибка отправки сообщения!" %}</strong> {% trans "Что-то пошло не так, попробуйте связаться со мной другим способом" %}
-                        </div>
-                    {% endif %}
-                    <form id="formFeedback" action="{% url "contacts" %}" method="post">
-                        {% csrf_token %}
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label>{% trans "Адрес электронной почты" %} <i class="text-danger">*</i></label>
-                                <input class="form-control" name="email" type="email" placeholder="mail@example.com"
-                                       required>
-                                <input style="display: none;" name="subject" type="text">
-                                <br>
-                                <label for="textMessage">{% trans "Сообщение" %} <i class="text-danger">*</i></label>
-                                <textarea id="textMessage" rows="8" style="width:100%;" class="form-control"
-                                          name="message" required></textarea>
-                                <br>
-                                <button type="submit" class="btn btn-lg btn-primary">{% trans "Отправить" %}</button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>

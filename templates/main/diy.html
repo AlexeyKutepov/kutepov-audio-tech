@@ -6,23 +6,6 @@
 {% endblock %}
 {% block title %}{% trans "Статьи" %}{% endblock title %}
 {% block header %}
-    <div class="bg-dark text-white mini-header">
-        <div class="container text-center">
-            <h1>{% trans "Блог" %}</h1>
-            <form class="text-center" action="{% url 'set_language' %}" method="post">{% csrf_token %}
-                <input name="next" type="hidden" value="{{ redirect_to }}">
-                {% get_current_language as LANGUAGE_CODE %}
-                {% get_available_languages as LANGUAGES %}
-                {% get_language_info_list for LANGUAGES as languages %}
-
-                {% for language in languages %}
-                    <button type="submit" name="language" value="{{ language.code }}"
-                            class="btn btn-link text-light">{{ language.name_local }} ({{ language.code }})
-                    </button>
-                {% endfor %}
-            </form>
-        </div>
-    </div>
 {% endblock %}
 {% block content %}
     <section id="diy">

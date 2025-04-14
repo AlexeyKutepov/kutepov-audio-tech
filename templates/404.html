@@ -1,44 +1,96 @@
-{% load static %}
+{% load static i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="{% trans 'Алексей Кутепов' %}">
+    <title>404 - {% trans 'Страница не найдена' %}</title>
 
-	<title>404 HTML Template by Colorlib</title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
 
-	<!-- Google font -->
-	<link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Passion+One:900" rel="stylesheet">
+    <!-- Bootstrap 4 CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="{% static 'css/fontawesome/all.css' %}" rel="stylesheet">
 
-	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" href="{% static 'css/404.css' %}" />
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
+    <!-- Custom CSS -->
+    <style>
+        .error-page {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        
+        .error-content {
+            max-width: 600px;
+            padding: 2rem;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #375a7f;
+            line-height: 1;
+            margin-bottom: 1rem;
+            font-family: 'Arial Black', sans-serif;
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #343a40;
+        }
+        
+        .error-message {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #6c757d;
+        }
+        
+        .btn-home {
+            padding: 0.6rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+        }
+        
+        @media (max-width: 576px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            
+            .error-title {
+                font-size: 1.5rem;
+            }
+            
+            .error-message {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <div class="error-page">
+        <div class="error-content">
+            <div class="error-code">404</div>
+            <h1 class="error-title">{% trans 'Страница не найдена' %}</h1>
+            <p class="error-message">
+                {% trans 'Страница, которую вы ищете, могла быть удалена, переименована или временно недоступна.' %}
+            </p>
+            <a href="{% url 'index' %}" class="btn btn-primary btn-home">
+                <i class="fas fa-home mr-2"></i> {% trans 'На главную' %}
+            </a>
+        </div>
+    </div>
 
-	<div id="notfound">
-		<div class="notfound">
-			<div class="notfound-404">
-				<h1>:(</h1>
-			</div>
-			<h2>404 - Page not found</h2>
-			<p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
-			<a href="{% url "index" %}">home page</a>
-		</div>
-	</div>
-
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 </body>
-
 </html>
