@@ -1,13 +1,39 @@
 {% extends "base.html" %}
 {% load static i18n pool_extras %}
 
+{% block extra_css %}
+<style>
+    .hero-header {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 6rem 0;
+        position: relative;
+    }
+    
+    @media (min-width: 768px) {
+        .hero-header {
+            padding: 8rem 0;
+        }
+    }
+    
+    @media (min-width: 992px) {
+        .hero-header {
+            padding: 10rem 0;
+        }
+    }
+</style>
+{% endblock %}
+
 {% block header %}
-<header class="bg-dark text-white py-4">
-    <div class="container text-center py-3">
-        <h1 class="display-4 font-weight-bold mb-3">{% trans 'Изготовление гитарных педалей эффектов' %}</h1>
-        <p class="lead mb-4">{% trans 'Профессиональные решения для музыкантов' %}</p>
-        <a href="#development" class="btn btn-primary btn-lg px-4 mr-2">{% trans 'Наши продукты' %}</a>
-        <a href="#contact" class="btn btn-outline-light btn-lg px-4">{% trans 'Контакты' %}</a>
+<header class="hero-header" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{% static 'img/header.jpg' %}');">
+    <div class="container text-center py-5">
+        <h1 class="display-4 font-weight-bold mb-3 text-white">{% trans 'Гитарные педали эффектов' %}</h1>
+        <p class="lead mb-4 text-white">{% trans 'Профессиональные решения для музыкантов' %}</p>
+        <div class="mt-4">
+            <a href="#development" class="btn btn-primary btn-lg px-4 mr-3">{% trans 'Каталог' %}</a>
+            <a href="#contact" class="btn btn-outline-light btn-lg px-4">{% trans 'Контакты' %}</a>
+        </div>
     </div>
 </header>
 {% endblock %}
