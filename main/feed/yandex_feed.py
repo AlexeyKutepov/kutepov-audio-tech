@@ -4,9 +4,9 @@ from main.models import Post
 
 
 class YandexFeed(YandexTurboFeed):
-    title = "Блог Алексея Кутепова"
+    title = "Kutepov Audio Tech"
     link = "http://kutepov-audio-tech.ru"
-    description = "Разработка программного обеспечения и автоматизация бизнес-процессов"
+    description = "Проектирование и изготовление аудио-оборудования"
 
     turbo_sanitize = True
 

@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'main',
     'main.templatetags',
-    'yaturbo'
+    'yaturbo',
 ]
 
 MIDDLEWARE = [

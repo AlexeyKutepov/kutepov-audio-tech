@@ -4,3 +4,4 @@ Pillow==11.1.0
 django-ckeditor==5.9.0
 django-yaturbo==1.0.0
 bleach==3.2.1
+fontawesomefree==6.6.0

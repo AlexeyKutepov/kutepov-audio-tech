@@ -5,9 +5,9 @@ from main.models import Post
 
 
 class ArticleFeed(Feed):
-    title = "Блог Алексея Кутепова"
+    title = "Kutepov Audio Tech"
     link = "http://kutepov-audio-tech.ru"
-    description = "Разработка программного обеспечения и автоматизация бизнес-процессов"
+    description = "Проектирование и изготовление аудио-оборудования"
     feed_type = CustomFeedGenerator
 
     def items(self):
