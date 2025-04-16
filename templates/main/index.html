@@ -32,7 +32,7 @@
         <p class="lead mb-4 text-white">{% trans 'Профессиональные решения для музыкантов' %}</p>
         <div class="mt-4">
             <a href="#development" class="btn btn-primary btn-lg px-4 mr-3">{% trans 'Каталог' %}</a>
-            <a href="#contact" class="btn btn-outline-light btn-lg px-4">{% trans 'Контакты' %}</a>
+            <a href="{% url 'contacts' %}" class="btn btn-outline-light btn-lg px-4">{% trans 'Контакты' %}</a>
         </div>
     </div>
 </header>
@@ -45,7 +45,7 @@
         <div class="row mb-5">
             <div class="col-lg-12 text-center">
                 <h2 class="font-weight-bold mb-3">{% trans "Педали эффектов" %}</h2>
-                <p class="lead text-muted">{% trans "Ознакомьтесь с нашей коллекцией уникальных гитарных эффектов" %}</p>
+                <p class="lead text-muted">{% trans "Ознакомьтесь с нашей коллекцией авторских гитарных эффектов" %}</p>
             </div>
         </div>
         <div class="row">
@@ -73,7 +73,7 @@
         <div class="row text-center">
             <div class="col-lg-4 mb-5 mb-lg-0">
                 <div class="bg-primary text-white rounded-circle mb-3 p-3 d-inline-block">
-                    <i class="fas fa-tools fa-2x"></i>
+                    <i class="fas fa-wrench fa-2x"></i>
                 </div>
                 <h2 class="h4 font-weight-bold">{% trans "Ручная сборка" %}</h2>
                 <p class="mb-0">{% trans "Каждая педаль собирается вручную с вниманием к деталям" %}</p>
@@ -82,15 +82,15 @@
                 <div class="bg-primary text-white rounded-circle mb-3 p-3 d-inline-block">
                     <i class="fas fa-star fa-2x"></i>
                 </div>
-                <h2 class="h4 font-weight-bold">{% trans "Премиум качество" %}</h2>
-                <p class="mb-0">{% trans "Используем только высококачественные компоненты" %}</p>
+                <h2 class="h4 font-weight-bold">{% trans "Качественное исполнение" %}</h2>
+                <p class="mb-0">{% trans "Только высококачественные электронные компоненты" %}</p>
             </div>
             <div class="col-lg-4">
                 <div class="bg-primary text-white rounded-circle mb-3 p-3 d-inline-block">
                     <i class="fas fa-headphones fa-2x"></i>
                 </div>
-                <h2 class="h4 font-weight-bold">{% trans "Уникальный звук" %}</h2>
-                <p class="mb-0">{% trans "Эксклюзивные схемы для неповторимого звучания" %}</p>
+                <h2 class="h4 font-weight-bold">{% trans "Отличное звучание" %}</h2>
+                <p class="mb-0">{% trans "Аналоговый звук с теплым характером" %}</p>
             </div>
         </div>
     </div>
@@ -99,9 +99,9 @@
 <!-- Call to Action -->
 <section class="py-5 text-white">
     <div class="container text-center py-4">
-        <h2 class="font-weight-bold mb-4">{% trans "Заинтересованы в наших продуктах?" %}</h2>
+        <h2 class="font-weight-bold mb-4">{% trans "Остались вопросы?" %}</h2>
         <p class="lead mb-4">{% trans "Свяжитесь с нами для заказа или получения дополнительной информации" %}</p>
-        <a href="#contact" class="btn btn-light btn-lg px-4">{% trans "Связаться" %}</a>
+        <a href="{% url 'contacts' %}" class="btn btn-light btn-lg px-4">{% trans "Связаться" %}</a>
     </div>
 </section>
 {% endblock %}
