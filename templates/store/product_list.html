@@ -37,11 +37,11 @@
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a href="{{ product.get_absolute_url }}" class="text-dark">{{ product.name }}</a>
+                        <a href="{{ product.get_absolute_url }}" class="text-light">{{ product.name }}</a>
                     </h5>
                     <p class="card-text">{{ product.price }} ₽</p>
                 </div>
-                <div class="card-footer bg-white">
+                <div class="card-footer bg-light">
                     <a href="{% url 'store:add_to_cart' product.id %}" class="btn btn-primary btn-sm">В корзину</a>
                 </div>
             </div>

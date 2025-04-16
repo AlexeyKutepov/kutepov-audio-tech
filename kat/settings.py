@@ -197,3 +197,5 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+ADMIN_SITE_HEADER = "Kutepov Audio Tech – Администрирование"
