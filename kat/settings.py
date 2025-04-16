@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'main',
     'main.templatetags',
     'yaturbo',
+    'store',
+    'orders'
 ]
 
 MIDDLEWARE = [
