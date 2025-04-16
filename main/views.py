@@ -106,16 +106,16 @@ def unsubscribe(request, id):
             return JsonResponse({"result": "error"})
 
 
-def diy(request):
+def blog(request):
     """
-    Категория DIY
+    Блог
     :param request:
     :return:
     """
-    post_list = Post.objects.filter(is_published=True, category=Post.diy_category).order_by('-datetime')
+    post_list = Post.objects.filter(is_published=True).order_by('-datetime')
     return render(
         request,
-        "main/diy.html",
+        "main/blog.html",
         {
             "post_list": post_list
         }

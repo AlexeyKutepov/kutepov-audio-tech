@@ -2,41 +2,38 @@
 {% load static i18n %}
 {% block meta %}
     <meta name="description"
-          content={{ post.description }}>
+          content={% trans "Статьи посвящённые аудиотехнике" %}>
 {% endblock %}
-{% block title %}{% trans "Блог Kutepov Audio Tech: " %}{{ post.title }}{% endblock title %}
+{% block title %}{% trans "Статьи" %}{% endblock title %}
 {% block header %}
+<header class="bg-dark text-white py-4">
+    <div class="container text-center py-3">
+        <h1 class="display-6 font-weight-bold mb-3">{% trans 'Статьи' %}</h1>
+    </div>
+</header>
 {% endblock %}
 {% block content %}
-    <section id="post">
-        <!-- Page Content -->
+    <section id="diy">
         <div class="container">
             <div class="row">
-                <!-- Post Content Column -->
-                <div itemscope itemtype="http://schema.org/NewsArticle" class="col-lg-10 mx-auto">
-                    <!-- Title -->
-                    <h1 itemprop="headline" class="mt-4">{{ post.title }}</h1>
-                    <!-- Author -->
-                    <p itemprop="author" itemscope itemtype="http://schema.org/Person" class="lead">
-                        {% trans "Автор Алексей Кутепов" %}
-                    </p>
-                    <hr>
-                    <!-- Date/Time -->
-                    <p>{% trans "Дата публикации" %} {{ post.datetime|date:"d.m.Y" }}</p>
-                    <hr>
-                    <!-- Preview Image -->
-                    <img class="img-fluid rounded" src="{{ post.title_image.url }}" alt="">
-                    <hr>
-                    <!-- Post Content -->
-                    <p class="lead">{{ post.short_text }}</p>
-                    <div itemprop="articleBody">{{ post.content|safe }}</div>
-                    <hr>
+                <div class="col-lg-8 mx-auto">
+
+                    {% for post in post_list %}
+                        <div class="card mb-4">
+                            <img class="card-img-top" src="{{ post.title_image.url }}" alt="">
+                            <div class="card-body">
+                                <h2 class="card-title"><a href="{% url "post" post.url %}">{{ post.title }}</a></h2>
+                                <p class="card-text">{{ post.short_text }}</p>
+                                <a href="{% url "post" post.url %}" class="btn btn-primary">{% trans "Читать далее" %} &rarr;</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                                {% trans "Дата публикации" %} {{ post.datetime|date:"d.m.Y" }}
+                            </div>
+                        </div>
+                    {% endfor %}
+
                 </div>
-
             </div>
-            <!-- /.row -->
-
         </div>
-        <!-- /.container -->
     </section>
 {% endblock %}

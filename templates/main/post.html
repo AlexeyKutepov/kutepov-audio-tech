@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block meta %}
+    <meta name="description"
+          content={{ post.description }}>
+{% endblock %}
+{% block title %}{% trans "Блог Kutepov Audio Tech: " %}{{ post.title }}{% endblock title %}
+{% block header %}
+{% endblock %}
+{% block content %}
+    <section id="post">
+        <!-- Page Content -->
+        <div class="container">
+            <div class="row">
+                <!-- Post Content Column -->
+                <div itemscope itemtype="http://schema.org/NewsArticle" class="col-lg-10 mx-auto">
+                    <!-- Title -->
+                    <h1 itemprop="headline" class="mt-4">{{ post.title }}</h1>
+                    <!-- Author -->
+                    <p itemprop="author" itemscope itemtype="http://schema.org/Person" class="lead">
+                        {% trans "Автор Алексей Кутепов" %}
+                    </p>
+                    <hr>
+                    <!-- Date/Time -->
+                    <p>{% trans "Дата публикации" %} {{ post.datetime|date:"d.m.Y" }}</p>
+                    <hr>
+                    <!-- Preview Image -->
+                    <img class="img-fluid rounded" src="{{ post.title_image.url }}" alt="">
+                    <hr>
+                    <!-- Post Content -->
+                    <p class="lead">{{ post.short_text }}</p>
+                    <div itemprop="articleBody">{{ post.content|safe }}</div>
+                    <hr>
+                </div>
+
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container -->
+    </section>
+{% endblock %}
