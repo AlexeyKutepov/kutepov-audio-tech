@@ -11,6 +11,8 @@ from django.views.decorators.csrf import csrf_exempt
 from kat import settings
 from main.forms import FeedbackForm, SubscribeForm
 from main.models import Feedback, Subscriber, Post
+from store.models import Product
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 logger = logging.getLogger(__name__)
 
@@ -23,10 +25,26 @@ def index(request):
     """
     general_list = Post.objects.filter(is_published=True, category=Post.general_category).order_by('-datetime')
     general_len = len(general_list)
+
+
+    products = Product.objects.filter(available=True)  # Только доступные товары
+    
+    # Пагинация (например, по 6 товаров на странице)
+    paginator = Paginator(products, 6)
+    page = request.GET.get('page')
+    
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
+    
     return render(
         request,
         "main/index.html",
         {
+            'products': products,
             "general_list": general_list[:general_len],
         }
     )
@@ -120,6 +138,7 @@ def blog(request):
             "post_list": post_list
         }
     )
+
 
 def post(request, url):
     """
