@@ -1,11 +1,21 @@
 {% extends "base.html" %}
 {% load static i18n %}
 {% block meta %}
-    <meta name="description"
-          content={{ post.description }}>
+    <meta name="description" content="{{ product.name }} | Kutepov Audio Tech">
 {% endblock %}
 {% block title %}{% trans "Блог Kutepov Audio Tech: " %}{{ post.title }}{% endblock title %}
 {% block header %}
+<header class="bg-dark text-white py-4">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}" class="text-white-50">{% trans "Главная" %}</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'blog' %}" class="text-white-50">{% trans "Статьи" %}</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">{{ post.title }}</li>
+            </ol>
+        </nav>
+    </div>
+</header>
 {% endblock %}
 {% block content %}
     <section id="post">

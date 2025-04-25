@@ -44,8 +44,11 @@
                         <a class="nav-link" href="{% url 'index' %}">{% trans 'Главная' %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'store:product_list' %}">{% trans 'Магазин' %}</a>
+                        <a class="nav-link" href="{% url 'products' %}">{% trans 'Педали эффектов' %}</a>
                     </li>
+                    {% comment %} <li class="nav-item">
+                        <a class="nav-link" href="{% url 'store:product_list' %}">{% trans 'Магазин' %}</a>
+                    </li> {% endcomment %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'blog' %}">{% trans 'Статьи' %}</a>
                     </li>

@@ -45,7 +45,7 @@
         <div class="row mb-5">
             <div class="col-lg-12 text-center">
                 <h2 class="font-weight-bold mb-3">{% trans "Педали эффектов" %}</h2>
-                <p class="lead text-muted">{% trans "Ознакомьтесь с нашей коллекцией авторских гитарных эффектов" %}</p>
+                <p class="lead text-muted">{% trans "Коллекция гитарных педалей эффектов Kutepov Audio Tech" %}</p>
             </div>
         </div>
         <div class="row">
@@ -55,10 +55,10 @@
                     <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}" style="height: 200px; object-fit: cover;">
                     <div class="card-body">
                         <h5 class="card-title font-weight-bold">{{ product.name }}</h5>
-                        <p class="card-text">{{ product.name }}</p>
+                        <p class="card-text">{{ product.short_text }}</p>
                     </div>
                     <div class="card-footer bg-transparent border-top-0 text-center">
-                        <a href="{{ product.get_absolute_url }}" class="btn btn-primary">{% trans "Подробнее" %}</a>
+                        <a href="{% url "product_details" product.url %}" class="btn btn-primary">{% trans "Подробнее" %}</a>
                     </div>
                 </div>
             </div>

@@ -26,4 +26,6 @@ urlpatterns = [
     path('unsubscribe/<id>/', views.unsubscribe, name='unsubscribe'),
     path('blog/<url>/', views.post, name='post'),
     path('blog/', views.blog, name='blog'),
+    path('products/<url>/', views.product_details, name='product_details'),
+    path('products/', views.products, name='products'),
 ]

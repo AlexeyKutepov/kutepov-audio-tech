@@ -1,7 +1,7 @@
-Django==5.1.7
+Django==5.2
 pytz==2019.3
 Pillow==11.1.0
-django-ckeditor==5.9.0
+django-ckeditor==6.7.2
 django-yaturbo==1.0.0
 bleach==3.2.1
 fontawesomefree==6.6.0

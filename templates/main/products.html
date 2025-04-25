@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block meta %}
+    <meta name="description" content="{% trans 'Педали эффектов | Kutepov Audio Tech' %}">
+{% endblock %}
+{% block title %}{% trans "Педали эффектов" %}{% endblock title %}
+{% block header %}
+<header class="bg-dark text-white py-5">
+    <div class="container text-center py-4">
+        <h1 class="display-5 fw-bold mb-3">{% trans 'Педали эффектов' %}</h1>
+        <p class="lead">{% trans 'Гитарные эффекты ручной работы' %}</p>
+    </div>
+</header>
+{% endblock %}
+{% block content %}
+<section id="products" class="py-5">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {% for product in guitar_effect_pedals_list %}
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0 overflow-hidden">
+                    {% if product.old_price %}
+                    <span class="badge bg-danger position-absolute m-2">{% trans 'Скидка' %}</span>
+                    {% endif %}
+                    <div class="card-img-top position-relative overflow-hidden" style="height: 250px;">
+                        <img class="card-img-top" src="{{ product.image.url }}" alt="{{ product.name }}" style="height: 250px; object-fit: cover;">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h3 class="card-title h5 mb-2">
+                            <a href="{% url 'product_details' product.url %}" class="text-decoration-none stretched-link">
+                                {{ product.name }}
+                            </a>
+                        </h3>
+                        <p class="card-text text-muted small mb-3">{{ product.short_text }}</p>
+                        
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    {% if product.old_price %}
+                                    <span class="text-decoration-line-through text-muted me-2">{{ product.old_price }} ₽</span>
+                                    {% endif %}
+                                    <span class="fw-bold fs-5">{{ product.price }} ₽</span>
+                                </div>
+                                {% if not product.available %}
+                                <span class="badge bg-warning text-dark">{% trans 'Под заказ' %}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer border-0">
+                        <a href="{% url 'product_details' product.url %}" class="btn btn-primary w-100">
+                            {% trans "Подробнее" %} <i class="bi bi-chevron-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

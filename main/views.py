@@ -10,8 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from kat import settings
 from main.forms import FeedbackForm, SubscribeForm
-from main.models import Feedback, Subscriber, Post
-from store.models import Product
+from main.models import Feedback, Subscriber, Post, ProductInfo
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 logger = logging.getLogger(__name__)
@@ -26,8 +25,7 @@ def index(request):
     general_list = Post.objects.filter(is_published=True, category=Post.general_category).order_by('-datetime')
     general_len = len(general_list)
 
-
-    products = Product.objects.filter(available=True)  # Только доступные товары
+    products = ProductInfo.objects.filter(is_published=True) 
     
     # Пагинация (например, по 6 товаров на странице)
     paginator = Paginator(products, 6)
@@ -155,5 +153,40 @@ def post(request, url):
         "main/post.html",
         {
             "post": post_list[0]
+        }
+    )
+
+
+def products(request):
+    """
+    Продукция
+    :param request:
+    :return:
+    """
+    guitar_effect_pedals_list = ProductInfo.objects.filter(is_published=True, category=ProductInfo.guitar_effect_pedals_category).order_by('-datetime')
+    return render(
+        request,
+        "main/products.html",
+        {
+            "guitar_effect_pedals_list": guitar_effect_pedals_list
+        }
+    )
+
+
+def product_details(request, url):
+    """
+    Информация о продукте
+    :param request:
+    :param url:
+    :return:
+    """
+    product_list = ProductInfo.objects.filter(url=url)
+    if not product_list or len(product_list) == 0:
+        raise Http404
+    return render(
+        request,
+        "main/product_details.html",
+        {
+            "post": product_list[0]
         }
     )
