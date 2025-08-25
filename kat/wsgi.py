@@ -11,10 +11,10 @@ import os
 import sys
 
 # add the hellodjango project path into the sys.path
-sys.path.append('/home/akutepov/web/kat/')
+sys.path.append('/home/www/kutepov-audio-tech/')
 
 # add the virtualenv site-packages path to the sys.path
-sys.path.append('/home/akutepov/web/kat3.7_env/lib/python3.7/site-packages/')
+sys.path.append('/home/www/kutepov-audio-tech/env/lib/python3.12/site-packages/')
 
 from django.core.wsgi import get_wsgi_application
 
