@@ -97,6 +97,9 @@ class ProductInfoAdmin(admin.ModelAdmin):
         ('Цены и наличие', {
             'fields': ('price', 'old_price', 'available')
         }),
+        ('Ссылки', {
+            'fields': ('vk_url', 'telegram_url')
+        }),
         ('Описания', {
             'fields': ('short_text', 'description')
         }),

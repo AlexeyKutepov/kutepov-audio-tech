@@ -80,12 +80,16 @@
                             {% trans "Для заказа или получения дополнительной информации свяжитесь с нами в социальных сетях:" %}
                         </p>
                         <div class="d-flex flex-wrap">
-                            <a href="https://vk.com/your_group" target="_blank" class="btn btn-outline-primary mr-2 mb-2">
+                            {% if product.vk_url %}
+                            <a href="{{ product.vk_url }}" target="_blank" class="btn btn-outline-primary mr-2 mb-2">
                                 <i class="bi bi-vimeo mr-1"></i> VK
                             </a>
-                            <a href="https://t.me/your_channel" target="_blank" class="btn btn-outline-primary mr-2 mb-2">
+                            {% endif %}
+                            {% if product.telegram_url %}
+                            <a href="{{ product.telegram_url }}" target="_blank" class="btn btn-outline-primary mr-2 mb-2">
                                 <i class="bi bi-telegram mr-1"></i> Telegram
                             </a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -104,7 +108,7 @@
                     </div>
                     
                     {% if product.available %}
-                    <span class="badge badge-success rounded text-white mb-2 px-3 py-2">
+                    <span class="badge badge-success rounded text-white mb-2 px-4 py-2" style="font-size: 0.95rem;">
                         <i class="bi bi-check-circle mr-2"></i> {% trans "В наличии" %}
                     </span>
                     {% else %}

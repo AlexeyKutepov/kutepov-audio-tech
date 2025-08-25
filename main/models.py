@@ -83,6 +83,8 @@ class ProductInfo(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     old_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     available = models.BooleanField(default=True)
+    vk_url = models.URLField("VK ссылка", max_length=500, blank=True, default="")
+    telegram_url = models.URLField("Telegram ссылка", max_length=500, blank=True, default="")
 
     def __unicode__(self):
         return self.name
