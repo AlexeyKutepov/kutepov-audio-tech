@@ -8,48 +8,7 @@
 
 {% block extra_css %}
 <style>
-    .availability-badge {
-        padding: 12px 20px;
-        border-radius: 25px;
-        font-weight: 600;
-        font-size: 0.95rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        border: 2px solid transparent;
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    
-    .availability-badge.available {
-        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-        color: white;
-        border-color: #28a745;
-    }
-    
-    .availability-badge.available:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
-        border-color: #1e7e34;
-    }
-    
-    .availability-badge.unavailable {
-        background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
-        color: white;
-        border-color: #ffc107;
-    }
-    
-    .availability-badge.unavailable:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
-        border-color: #e0a800;
-    }
-    
-    .availability-badge i {
-        font-size: 1.1rem;
-        margin-right: 8px;
-    }
+.badge.text-white a, .badge.text-white i, .badge.text-white { color: #fff !important; }
 </style>
 {% endblock %}
 
@@ -70,11 +29,11 @@
 {% block content %}
 <section class="py-5">
     <div class="container">
-        <div class="row g-5">
+        <div class="row">
             <!-- Галерея изображений -->
             <div class="col-lg-6">
                 <div class="mb-4">
-                    <div class="border rounded-3 overflow-hidden mb-3">
+                    <div class="border rounded overflow-hidden mb-3">
                         <img id="mainProductImage" src="{{ product.image.url }}" 
                              alt="{{ product.name }}" 
                              class="img-fluid w-100" 
@@ -82,8 +41,8 @@
                     </div>
                     
                     <!-- Миниатюры изображений -->
-                    <div class="d-flex flex-wrap gap-2">
-                        <button class="btn btn-sm btn-outline-secondary p-0 border rounded" 
+                    <div class="d-flex flex-wrap">
+                        <button class="btn btn-sm btn-outline-secondary p-0 border rounded mr-2 mb-2" 
                                 onclick="changeMainImage('{{ product.image.url }}')">
                             <img src="{{ product.image.url }}" 
                                  alt="{{ product.name }}" 
@@ -92,7 +51,7 @@
                         </button>
                         
                         {% for image in product.images.all %}
-                        <button class="btn btn-sm btn-outline-secondary p-0 border rounded" 
+                        <button class="btn btn-sm btn-outline-secondary p-0 border rounded mr-2 mb-2" 
                                 onclick="changeMainImage('{{ image.image.url }}')">
                             <img src="{{ image.image.url }}" 
                                  alt="{{ product.name }} - фото {{ forloop.counter }}" 
@@ -105,7 +64,7 @@
                 
                 {% if product.old_price %}
                 <div class="alert alert-success d-flex align-items-center" role="alert">
-                    <i class="bi bi-tag-fill me-2 fs-4"></i>
+                    <i class="bi bi-tag-fill mr-2" style="font-size: 1.5rem;"></i>
                     <div>
                         <h5 class="alert-heading mb-1">{% trans "Специальное предложение!" %}</h5>
                         <p class="mb-0">{% trans "Экономия" %} {{ product.get_discount }}%</p>
@@ -116,19 +75,16 @@
                 <!-- Блок с контактами -->
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
-                        <h3 class="h5 card-title mb-3"><i class="bi bi-info-circle text-primary me-2"></i>{% trans "Как приобрести?" %}</h3>
+                        <h3 class="h5 card-title mb-3"><i class="bi bi-info-circle text-primary mr-2"></i>{% trans "Как приобрести?" %}</h3>
                         <p class="card-text mb-3">
                             {% trans "Для заказа или получения дополнительной информации свяжитесь с нами в социальных сетях:" %}
                         </p>
-                        <div class="d-flex flex-wrap gap-2">
-                            <a href="https://vk.com/your_group" target="_blank" class="btn btn-outline-primary">
-                                <i class="bi bi-vimeo me-1"></i> VK
+                        <div class="d-flex flex-wrap">
+                            <a href="https://vk.com/your_group" target="_blank" class="btn btn-outline-primary mr-2 mb-2">
+                                <i class="bi bi-vimeo mr-1"></i> VK
                             </a>
-                            <a href="https://t.me/your_channel" target="_blank" class="btn btn-outline-primary">
-                                <i class="bi bi-telegram me-1"></i> Telegram
-                            </a>
-                            <a href="https://wa.me/your_number" target="_blank" class="btn btn-outline-primary">
-                                <i class="bi bi-whatsapp me-1"></i> WhatsApp
+                            <a href="https://t.me/your_channel" target="_blank" class="btn btn-outline-primary mr-2 mb-2">
+                                <i class="bi bi-telegram mr-1"></i> Telegram
                             </a>
                         </div>
                     </div>
@@ -137,95 +93,35 @@
             
             <!-- Информация о продукте -->
             <div class="col-lg-6">
-                <h1 class="display-5 fw-bold mb-3">{{ product.name }}</h1>
+                <h1 class="display-5 font-weight-bold mb-3">{{ product.name }}</h1>
                 
                 <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
-                    <div class="me-4 mb-2">
+                    <div class="mr-4 mb-2">
                         {% if product.old_price %}
-                        <span class="text-decoration-line-through text-muted me-2 fs-5">{{ product.old_price }} ₽</span>
+                        <span class="text-muted mr-2 h5" style="text-decoration: line-through;">{{ product.old_price }} ₽</span>
                         {% endif %}
-                        <span class="fw-bold fs-3 text-primary">{{ product.price }} ₽</span>
+                        <span class="text-primary h2"><strong>{{ product.price }}</strong> ₽</span>
                     </div>
                     
                     {% if product.available %}
-                    <span class="badge availability-badge available">
-                        <i class="fas fa-check-circle me-2"></i> {% trans "В наличии" %}
+                    <span class="badge badge-success rounded text-white mb-2 px-3 py-2">
+                        <i class="bi bi-check-circle mr-2"></i> {% trans "В наличии" %}
                     </span>
                     {% else %}
-                    <span class="badge availability-badge unavailable">
-                        <i class="fas fa-clock me-2"></i> {% trans "Под заказ" %}
+                    <span class="badge badge-warning rounded mb-2 px-3 py-2">
+                        <i class="bi bi-clock-history mr-2"></i> {% trans "Под заказ" %}
                     </span>
                     {% endif %}
-                </div>
-                
-                <div class="mb-4">
-                    <a href="https://vk.com/your_group" target="_blank" class="btn btn-primary btn-lg px-4 me-3">
-                        <i class="bi bi-cart3 me-2"></i> {% trans "Купить" %}
-                    </a>
-                    <button class="btn btn-outline-secondary btn-lg px-4" id="addToWishlist">
-                        <i class="bi bi-heart me-2"></i> {% trans "В избранное" %}
-                    </button>
                 </div>
                 
                 <!-- Блок с описанием -->
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
                         <h3 class="h5 card-title d-flex align-items-center">
-                            <i class="bi bi-card-text text-primary me-2"></i>{% trans "Описание" %}
+                            <i class="bi bi-card-text text-primary mr-2"></i>{% trans "Описание" %}
                         </h3>
                         <div class="card-text">
                             {{ product.description|safe }}
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Аккордеон с характеристиками -->
-                <div class="accordion mb-4" id="productAccordion">
-                    <div class="accordion-item border-0 shadow-sm">
-                        <h2 class="accordion-header" id="headingSpecs">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpecs" aria-expanded="false" aria-controls="collapseSpecs">
-                                <i class="bi bi-list-check text-primary me-2"></i> {% trans "Технические характеристики" %}
-                            </button>
-                        </h2>
-                        <div id="collapseSpecs" class="accordion-collapse collapse" aria-labelledby="headingSpecs" data-bs-parent="#productAccordion">
-                            <div class="accordion-body">
-                                <ul class="list-unstyled">
-                                    <li class="mb-2 d-flex justify-content-between">
-                                        <span class="text-muted">{% trans "Категория" %}</span>
-                                        <span>{{ product.category }}</span>
-                                    </li>
-                                    <li class="mb-2 d-flex justify-content-between">
-                                        <span class="text-muted">{% trans "Дата добавления" %}</span>
-                                        <span>{{ product.datetime|date:"d.m.Y" }}</span>
-                                    </li>
-                                    <li class="mb-2 d-flex justify-content-between">
-                                        <span class="text-muted">{% trans "Гарантия" %}</span>
-                                        <span>24 месяца</span>
-                                    </li>
-                                    <li class="mb-2 d-flex justify-content-between">
-                                        <span class="text-muted">{% trans "Страна производства" %}</span>
-                                        <span>{% trans "Россия" %}</span>
-                                    </li>
-                                    <li class="mb-2 d-flex justify-content-between">
-                                        <span class="text-muted">{% trans "Вес" %}</span>
-                                        <span>~450 г</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="accordion-item border-0 shadow-sm mt-3">
-                        <h2 class="accordion-header" id="headingDelivery">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDelivery" aria-expanded="false" aria-controls="collapseDelivery">
-                                <i class="bi bi-info-circle text-primary me-2"></i> {% trans "Дополнительная информация" %}
-                            </button>
-                        </h2>
-                        <div id="collapseDelivery" class="accordion-collapse collapse" aria-labelledby="headingDelivery" data-bs-parent="#productAccordion">
-                            <div class="accordion-body">
-                                <p>{% trans "Все наши педали проходят тщательную проверку перед отправкой." %}</p>
-                                <p>{% trans "Мы предоставляем техническую поддержку и консультации по использованию наших продуктов." %}</p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -239,11 +135,5 @@
     function changeMainImage(src) {
         document.getElementById('mainProductImage').src = src;
     }
-    
-    // Обработчик для кнопки "В избранное"
-    document.getElementById('addToWishlist').addEventListener('click', function() {
-        // Здесь можно добавить AJAX-запрос для добавления в избранное
-        alert('{% trans "Товар добавлен в избранное" %}');
-    });
 </script>
 {% endblock %}
