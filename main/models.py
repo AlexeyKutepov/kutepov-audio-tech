@@ -71,13 +71,15 @@ class ProductInfo(models.Model):
     )
     name = models.CharField(max_length=500)
     url = models.CharField(max_length=500)
-    image = models.ImageField(upload_to="products/")
+    image = models.ImageField(
+        upload_to="products/main/",
+        verbose_name="Главное изображение"
+    )
     datetime = models.DateTimeField(default=timezone.now)
     short_text = models.TextField()
     description = RichTextUploadingField('description')
     is_published = models.BooleanField(default=False)
     category = models.CharField(max_length=100, choices=category_classifier)
-    update_date = models.DateTimeField(default=timezone.now)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     old_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     available = models.BooleanField(default=True)
@@ -95,3 +97,36 @@ class ProductInfo(models.Model):
         if self.old_price:
             return round((1 - (self.price / self.old_price)) * 100)
         return 0
+    
+    # Метод для получения ВСЕХ изображений продукта
+    def all_images(self):
+        """Возвращает все изображения продукта (главное + дополнительные)"""
+        images = [self.image]  # главное изображение
+        images.extend([img.image for img in self.images.all()])  # дополнительные
+        return images
+    
+
+class ProductImage(models.Model):
+    """
+    Изображения продукта
+    """
+    product = models.ForeignKey(
+        ProductInfo, 
+        on_delete=models.CASCADE,
+        related_name='images'  # имя для обратной связи
+    )
+    image = models.ImageField(upload_to="products/")
+    order = models.PositiveIntegerField(
+        default=0,  # для сортировки изображений
+        blank=True,
+        null=True
+    )
+
+    class Meta:
+        ordering = ['order']  # автоматическая сортировка по порядку
+        verbose_name = 'Изображение продукта'
+        verbose_name_plural = 'Изображения продуктов'
+
+    def __str__(self):
+        return f"Изображение для {self.product.name}"   
+     

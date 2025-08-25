@@ -42,8 +42,6 @@ INSTALLED_APPS = [
     'main',
     'main.templatetags',
     'yaturbo',
-    # 'store',
-    # 'orders'
 ]
 
 MIDDLEWARE = [
@@ -135,7 +133,7 @@ LOCALE_PATHS = (
 )
 # print(LOCALE_PATHS)
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 

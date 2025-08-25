@@ -187,6 +187,6 @@ def product_details(request, url):
         request,
         "main/product_details.html",
         {
-            "post": product_list[0]
+            "product": product_list[0]
         }
     )
