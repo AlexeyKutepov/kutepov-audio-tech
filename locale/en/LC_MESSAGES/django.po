@@ -3,16 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-08-25 11:23+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2025-08-25 11:30+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language-Team: English <LL@li.org>\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,23 +24,19 @@ msgstr "Alexey Kutepov"
 
 #: .\templates\404.html:9 .\templates\404.html:82
 msgid "Страница не найдена"
-msgstr ""
+msgstr "Page not found"
 
 #: .\templates\404.html:84
-msgid ""
-"Страница, которую вы ищете, могла быть удалена, переименована или временно "
-"недоступна."
-msgstr ""
+msgid "Страница, которую вы ищете, могла быть удалена, переименована или временно недоступна."
+msgstr "The page you are looking for might have been removed, renamed, or is temporarily unavailable."
 
 #: .\templates\404.html:87
-#, fuzzy
-#| msgid "Главная"
 msgid "На главную"
 msgstr "Home"
 
 #: .\templates\base.html:11
 msgid "Проектирование и изготовление аудио-оборудования"
-msgstr ""
+msgstr "Design and manufacturing of audio equipment"
 
 #: .\templates\base.html:44 .\templates\main\post.html:12
 #: .\templates\main\product_details.html:20
@@ -53,7 +48,7 @@ msgstr "Home"
 #: .\templates\main\product_details.html:21 .\templates\main\products.html:6
 #: .\templates\main\products.html:10
 msgid "Педали эффектов"
-msgstr ""
+msgstr "Effects pedals"
 
 #: .\templates\base.html:54 .\templates\main\blog.html:7
 #: .\templates\main\blog.html:11 .\templates\main\post.html:13
@@ -67,7 +62,7 @@ msgstr "Contacts"
 
 #: .\templates\main\blog.html:5
 msgid "Статьи посвящённые аудиотехнике"
-msgstr ""
+msgstr "Articles about audio equipment"
 
 #: .\templates\main\blog.html:27
 msgid "Читать далее"
@@ -78,32 +73,24 @@ msgid "Дата публикации"
 msgstr "Date of publication"
 
 #: .\templates\main\contacts.html:5
-#, fuzzy
-#| msgid "Контакты Алексея Кутепова и форма обратной связи"
 msgid "Контакты и форма обратной связи"
-msgstr "Contact Alexey Kutepov and feedback form"
+msgstr "Contacts and feedback form"
 
 #: .\templates\main\contacts.html:23
-#, fuzzy
-#| msgid "Мои группы в социальных сетях:"
 msgid "Сообщества в социальных сетях:"
-msgstr "My social media groups:"
+msgstr "Communities on social networks:"
 
 #: .\templates\main\contacts.html:25
-msgid ""
-"Присоединяйтесь к сообществам, получайте поддержку и следите за новостями!"
-msgstr ""
+msgid "Присоединяйтесь к сообществам, получайте поддержку и следите за новостями!"
+msgstr "Join the communities, get support and stay up to date!"
 
 #: .\templates\main\contacts.html:70
 msgid "Форма обратной связи"
 msgstr "Feedback form"
 
 #: .\templates\main\contacts.html:72
-#, fuzzy
-#| msgid ""
-#| "Кроме этого, Вы можете оставить мне сообщение через форму обратной связи:"
 msgid "Есть вопрос или предложение? Напишите через форму обратной связи!"
-msgstr "You can send me a message through the feedback form"
+msgstr "Have a question or suggestion? Send it via the feedback form!"
 
 #: .\templates\main\contacts.html:76
 msgid "Сообщение успешно отправлено!"
@@ -130,10 +117,8 @@ msgid "Сообщение"
 msgstr "Message"
 
 #: .\templates\main\contacts.html:100
-#, fuzzy
-#| msgid "Сообщение"
 msgid "Ваше сообщение…"
-msgstr "Message"
+msgstr "Your message…"
 
 #: .\templates\main\contacts.html:102
 msgid "Отправить"
@@ -141,211 +126,68 @@ msgstr "Send"
 
 #: .\templates\main\index.html:31
 msgid "Гитарные педали эффектов"
-msgstr ""
+msgstr "Guitar effect pedals"
 
 #: .\templates\main\index.html:32
 msgid "Профессиональные решения для музыкантов"
-msgstr ""
+msgstr "Professional solutions for musicians"
 
 #: .\templates\main\index.html:34
 msgid "Каталог"
-msgstr ""
+msgstr "Catalog"
 
 #: .\templates\main\index.html:48
 msgid "Коллекция гитарных педалей эффектов Kutepov Audio Tech"
-msgstr ""
+msgstr "Collection of guitar effect pedals by Kutepov Audio Tech"
 
 #: .\templates\main\index.html:61 .\templates\main\products.html:52
 msgid "Подробнее"
-msgstr ""
+msgstr "More details"
 
 #: .\templates\main\post.html:6
 msgid "Блог Kutepov Audio Tech: "
-msgstr ""
+msgstr "Kutepov Audio Tech Blog: "
 
 #: .\templates\main\post.html:31
 msgid "Автор Алексей Кутепов"
 msgstr "Author Alexey Kutepov"
 
 #: .\templates\main\product_details.html:69
-#, fuzzy
-#| msgid "Социальные сети"
 msgid "Специальное предложение!"
-msgstr "Social networks"
+msgstr "Special offer!"
 
 #: .\templates\main\product_details.html:70
 msgid "Экономия"
-msgstr ""
+msgstr "Save"
 
 #: .\templates\main\product_details.html:78
 msgid "Как приобрести?"
-msgstr ""
+msgstr "How to buy?"
 
 #: .\templates\main\product_details.html:80
-msgid ""
-"Для заказа или получения дополнительной информации свяжитесь с нами в "
-"социальных сетях:"
-msgstr ""
+msgid "Для заказа или получения дополнительной информации свяжитесь с нами в социальных сетях:"
+msgstr "To order or get more information, contact us on social networks:"
 
 #: .\templates\main\product_details.html:112
 msgid "В наличии"
-msgstr ""
+msgstr "In stock"
 
 #: .\templates\main\product_details.html:116 .\templates\main\products.html:45
 msgid "Под заказ"
-msgstr ""
+msgstr "Pre-order"
 
 #: .\templates\main\product_details.html:125
 msgid "Описание"
-msgstr ""
+msgstr "Description"
 
 #: .\templates\main\products.html:4
 msgid "Педали эффектов | Kutepov Audio Tech"
-msgstr ""
+msgstr "Effects pedals | Kutepov Audio Tech"
 
 #: .\templates\main\products.html:11
-#, fuzzy
-#| msgid "Адрес электронной почты"
 msgid "Гитарные эффекты ручной работы"
-msgstr "E-mail address"
+msgstr "Handmade guitar effects"
 
 #: .\templates\main\products.html:23
 msgid "Скидка"
-msgstr ""
-
-#~ msgid ""
-#~ "Разработка программного обеспечения и внедрение информационных технологий "
-#~ "в современный бизнес"
-#~ msgstr ""
-#~ "Software development and implementation of information technology into "
-#~ "modern business"
-
-#~ msgid "Курсы"
-#~ msgstr "Courses"
-
-#~ msgid "Блог Алексея Кутепова"
-#~ msgstr "Blog of Alexey Kutepov"
-
-#, fuzzy
-#~| msgid ""
-#~| "Разработка программного обеспечения и автоматизация бизнес-процессов"
-#~ msgid "Разработка программного обеспечения"
-#~ msgstr "Software development and business process automation"
-
-#~ msgid "Канал в Telegram"
-#~ msgstr "Telegram channel"
-
-#~ msgid "Подписка оформлена!"
-#~ msgstr "Уou are subscribed!"
-
-#~ msgid "Что-то пошло не так :("
-#~ msgstr "Something went wrong :("
-
-#~ msgid "Подписаться"
-#~ msgstr "Subscribe"
-
-#~ msgid "Telegram"
-#~ msgstr "Telegram"
-
-#~ msgid "Мои контакты в мессенджере Telegram:"
-#~ msgstr "My contacts in the Telegram messenger:"
-
-#, fuzzy
-#~| msgid "Социальные сети"
-#~ msgid "Группы в социальных сетях"
-#~ msgstr "Social groups"
-
-#~ msgid "Мои контакты в социальных сетях:"
-#~ msgstr "My contacts on social networks:"
-
-#, fuzzy
-#~| msgid "Блог Алексея Кутепова"
-#~ msgid "Курсы Java от Алексея Кутепова"
-#~ msgstr "Blog of Alexey Kutepov"
-
-#~ msgid "Курсы Java"
-#~ msgstr "Java-courses"
-
-#, fuzzy
-#~| msgid "Блог Алексея Кутепова"
-#~ msgid "Курсы от Алексея Кутепова"
-#~ msgstr "Blog of Alexey Kutepov"
-
-#~ msgid ""
-#~ "Мои статьи о разработке программного обеспечения на Java и Python, а так "
-#~ "же обзоры современных решений в сфере IT"
-#~ msgstr ""
-#~ "My articles of software development on Java and Python, and reviews of "
-#~ "modern IT solutions"
-
-#, fuzzy
-#~| msgid ""
-#~| "Мои статьи о разработке программного обеспечения на Java и Python, а так "
-#~| "же обзоры современных решений в сфере IT"
-#~ msgid ""
-#~ "Статьи о разработке программного обеспечения на Java и Python, а так же "
-#~ "обзоры современных решений в сфере IT"
-#~ msgstr ""
-#~ "Articles of software development on Java and Python, and reviews of "
-#~ "modern IT solutions"
-
-#~ msgid "Информационные технологии"
-#~ msgstr "Information Technology"
-
-#~ msgid "Java. Базовый курс"
-#~ msgstr "Java. Base course"
-
-#~ msgid "О курсе"
-#~ msgstr "About course"
-
-#~ msgid "Уроки"
-#~ msgstr "Lessons"
-
-#~ msgid "Блог Алексея Кутепова: "
-#~ msgstr "Blog of Alexey Kutepov: "
-
-#~ msgid ""
-#~ "Я очень люблю путешествовать и стараюсь это делать регулярно, поэтому "
-#~ "создал отдельную страницу с фото-отчётами о моих поездках. Приятного "
-#~ "просмотра!"
-#~ msgstr ""
-#~ "I love to travel and try to do it regularly, so I created a separate page "
-#~ "with photo from my trips. Enjoy watching!"
-
-#~ msgid "Путешествия"
-#~ msgstr "Travel"
-
-#~ msgid "IT"
-#~ msgstr "IT"
-
-#~ msgid "Скоро на kutepov-audio-tech.ru!"
-#~ msgstr "Coming soon!"
-
-#~ msgid "Узнать первым!"
-#~ msgstr "Be the first to know!"
-
-#, fuzzy
-#~| msgid "Адрес электронной почты"
-#~ msgid "Введите адрес электронной почты..."
-#~ msgstr "Enter e-mail address please"
-
-#~ msgid "Что будет на курсе?"
-#~ msgstr "What will happen on the course?"
-
-#~ msgid "Обо мне"
-#~ msgstr "About me"
-
-#~ msgid ""
-#~ "Вы можете связаться со мной в мессенджере Telegram или в одной из "
-#~ "перечисленных ниже социальных сетей:"
-#~ msgstr ""
-#~ "You can contact me in the Telegram messenger or in one of the social "
-#~ "networks listed below:"
-
-#~ msgid ""
-#~ "Я очень люблю путешествовать и стараюсь это делать регулярно, поэтому "
-#~ "сделал отдельный раздел с фото-отчётами о моих поездках. Приятного "
-#~ "просмотра!"
-#~ msgstr ""
-#~ "I love to travel and try to do it regularly, so I made a separate section "
-#~ "with photo from my trips. Enjoy watching!"
+msgstr "Discount"
