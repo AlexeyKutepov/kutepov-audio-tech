@@ -5,3 +5,4 @@ django-ckeditor==6.7.2
 django-yaturbo==1.0.0
 bleach==3.2.1
 fontawesomefree==6.6.0
+psycopg2-binary
