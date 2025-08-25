@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.utils.timezone import localtime
 from django.contrib import admin
 from django.utils.html import format_html, mark_safe
-from main.models import Feedback, Subscriber, Post, ProductInfo, ProductImage
+from main.models import Feedback, Subscriber, Post, ProductInfo, ProductImage, ContactLink
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
@@ -150,8 +150,8 @@ class ProductInfoAdmin(admin.ModelAdmin):
             for idx, img in enumerate(additional, 1):
                 if img.image and hasattr(img.image, 'url'):
                     additional_html.append(
-                        f'<div style="float: left; margin-right: 10px;">'
-                        f'<img src="{img.image.url}" width="100" style="object-fit: contain;"/>'
+                        f'<div style=\"float: left; margin-right: 10px;\">'
+                        f'<img src=\"{img.image.url}\" width=\"100\" style=\"object-fit: contain;\"/>'
                         f'<p>Изображение #{idx}</p></div>'
                     )
             if additional_html:
@@ -185,3 +185,11 @@ class ProductInfoAdmin(admin.ModelAdmin):
     
     def get_queryset(self, request):
         return super().get_queryset(request).prefetch_related('images')
+
+
+@admin.register(ContactLink)
+class ContactLinkAdmin(admin.ModelAdmin):
+    list_display = ("name", "url", "icon_class", "order", "is_active")
+    list_editable = ("order", "is_active")
+    search_fields = ("name", "url")
+    list_filter = ("is_active",)

@@ -11,6 +11,11 @@ class Feedback(models.Model):
     message = models.TextField()
     datetime = models.DateTimeField(default=timezone.now)
 
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'сообщение'
+        verbose_name_plural = 'Сообщения'
+
     def __str__(self):
         return self.email
 
@@ -22,6 +27,11 @@ class Subscriber(models.Model):
     email = models.EmailField()
     datetime = models.DateTimeField(default=timezone.now)
     is_subscribed = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'подписчика'
+        verbose_name_plural = 'Подписчики'
 
     def __str__(self):
         return self.email
@@ -50,6 +60,11 @@ class Post(models.Model):
     is_published = models.BooleanField(default=False)
     category = models.CharField(max_length=100, choices=category_classifier)
     update_date = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'пост'
+        verbose_name_plural = 'Посты'
 
     def __unicode__(self):
         return self.title
@@ -85,6 +100,11 @@ class ProductInfo(models.Model):
     available = models.BooleanField(default=True)
     vk_url = models.URLField("VK ссылка", max_length=500, blank=True, default="")
     telegram_url = models.URLField("Telegram ссылка", max_length=500, blank=True, default="")
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = 'информацию о продукции'
+        verbose_name_plural = 'Информация о продукции'
 
     def __unicode__(self):
         return self.name
@@ -130,5 +150,22 @@ class ProductImage(models.Model):
         verbose_name_plural = 'Изображения продуктов'
 
     def __str__(self):
-        return f"Изображение для {self.product.name}"   
+        return f"Изображение для {self.product.name}"
+
+
+class ContactLink(models.Model):
+    """Ссылки для страницы контактов (социальные сети и т.п.)."""
+    name = models.CharField('Название', max_length=100)
+    url = models.URLField('Ссылка', max_length=500)
+    icon_class = models.CharField('CSS класс иконки', max_length=100, blank=True, default='')  # например 'fab fa-telegram'
+    order = models.PositiveIntegerField('Порядок', default=0)
+    is_active = models.BooleanField('Отображать', default=True)
+
+    class Meta:
+        ordering = ['order', 'id']
+        verbose_name = 'ссылку для страницы контактов'
+        verbose_name_plural = 'Ссылки для страницы контактов'
+
+    def __str__(self):
+        return self.name   
      

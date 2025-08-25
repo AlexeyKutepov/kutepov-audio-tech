@@ -8,64 +8,117 @@
 {% block header %}
 <header class="bg-dark text-white py-4">
     <div class="container text-center py-3">
-        <h1 class="display-6 font-weight-bold mb-3">{% trans 'Контакты' %}</h1>
+        <h1 class="display-4 font-weight-bold mb-3">{% trans 'Контакты' %}</h1>
     </div>
 </header>
 {% endblock %}
 {% block content %}
-    <section id="social-groups">
+    <section id="social-groups" class="py-4">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 mx-auto">
-                    <h3>{% trans "Сообщества в социальных сетях:" %}</h3>
-                    <p class="lead">{% trans "Присоединяйтесь к сообществам, получайте поддержку и следите за новостями!" %}</p>
-                    <ul>
-                        <li><h4><a href="https://t.me/kutepov_audio_tech"><i class="fab fa-telegram"></i>
-                            https://t.me/kutepov_audio_tech</a></h4></li>
-                        <li><h4><a href="https://vk.com/kutepov_audio_tech"><i class="fab fa-vk"></i>
-                            https://vk.com/kutepov_audio_tech</a></h4></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="feedback">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <h3 class="section-title"><span>{% trans "Форма обратной связи" %}</span></h3>
-                    <p class="lead">{% trans "Есть вопрос или предложение? Напишите через форму обратной связи!" %}</p>
-                    {% if is_send is null %}
-                    {% elif is_send %}
-                        <div class="alert alert-dismissible alert-success">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            <strong>{% trans "Сообщение успешно отправлено!" %}</strong> {% trans "Я Вам отвечу в ближайшее время" %}
-                        </div>
-                    {% else %}
-                        <div class="alert alert-dismissible alert-danger">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            <strong>{% trans "Ошибка отправки сообщения!" %}</strong> {% trans "Что-то пошло не так, попробуйте связаться со мной другим способом" %}
-                        </div>
-                    {% endif %}
-                    <form id="formFeedback" action="{% url "contacts" %}" method="post">
-                        {% csrf_token %}
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label>{% trans "Адрес электронной почты" %} <i class="text-danger">*</i></label>
-                                <input class="form-control" name="email" type="email" placeholder="mail@example.com"
-                                       required>
-                                <input style="display: none;" name="subject" type="text">
-                                <br>
-                                <label for="textMessage">{% trans "Сообщение" %} <i class="text-danger">*</i></label>
-                                <textarea id="textMessage" rows="8" style="width:100%;" class="form-control"
-                                          name="message" required></textarea>
-                                <br>
-                                <button type="submit" class="btn btn-lg btn-primary">{% trans "Отправить" %}</button>
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-between border-bottom pb-2 mb-3">
+                                <h3 class="h4 mb-0 text-dark">{% trans "Сообщества в социальных сетях:" %}</h3>
                             </div>
+                            <p class="lead">{% trans "Присоединяйтесь к сообществам, получайте поддержку и следите за новостями!" %}</p>
+                            {% with links=contact_links %}
+                            {% if links %}
+                            <ul class="list-group list-group-flush">
+                                {% for link in links %}
+                                {% if link.is_active %}
+                                <li class="list-group-item d-flex align-items-center">
+                                    {% if link.icon_class %}
+                                    <i class="{{ link.icon_class }} text-primary mr-2" style="width:20px;"></i>
+                                    {% endif %}
+                                    <a class="text-truncate" style="max-width:100%;" href="{{ link.url }}" target="_blank" rel="noopener">{{ link.url }}</a>
+                                </li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                            {% else %}
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex align-items-center">
+                                    <i class="fab fa-telegram text-primary mr-2" style="width:20px;"></i>
+                                    <a class="text-truncate" style="max-width:100%;" href="https://t.me/kutepov_audio_tech" target="_blank" rel="noopener">
+                                        https://t.me/kutepov_audio_tech
+                                    </a>
+                                </li>
+                                <li class="list-group-item d-flex align-items-center">
+                                    <i class="fab fa-vk text-primary mr-2" style="width:20px;"></i>
+                                    <a class="text-truncate" style="max-width:100%;" href="https://vk.com/kutepov_audio_tech" target="_blank" rel="noopener">
+                                        https://vk.com/kutepov_audio_tech
+                                    </a>
+                                </li>
+                            </ul>
+                            {% endif %}
+                            {% endwith %}
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <section id="feedback" class="pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-between border-bottom pb-2 mb-3">
+                                <h3 class="h4 mb-0 text-dark"><span>{% trans "Форма обратной связи" %}</span></h3>
+                            </div>
+                            <p class="lead">{% trans "Есть вопрос или предложение? Напишите через форму обратной связи!" %}</p>
+                            {% if is_send is null %}
+                            {% elif is_send %}
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>{% trans "Сообщение успешно отправлено!" %}</strong> {% trans "Я Вам отвечу в ближайшее время" %}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            {% else %}
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong>{% trans "Ошибка отправки сообщения!" %}</strong> {% trans "Что-то пошло не так, попробуйте связаться со мной другим способом" %}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            {% endif %}
+                            <form id="formFeedback" action="{% url "contacts" %}" method="post" novalidate>
+                                {% csrf_token %}
+                                <div class="form-group mb-3">
+                                    <label for="emailInput">{% trans "Адрес электронной почты" %} <i class="text-danger">*</i></label>
+                                    <input id="emailInput" class="form-control" name="email" type="email" placeholder="name@example.com"
+                                           autocomplete="email" aria-required="true" required>
+                                    <input style="display: none;" name="subject" type="text">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="textMessage">{% trans "Сообщение" %} <i class="text-danger">*</i></label>
+                                    <textarea id="textMessage" rows="8" class="form-control"
+                                              name="message" minlength="10" aria-required="true" required placeholder="{% trans "Ваше сообщение…" %}"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">{% trans "Отправить" %}</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Авто-скрытие алертов через 5 секунд
+        (function() {
+            var alerts = document.querySelectorAll('.alert.fade.show');
+            if (!alerts.length) return;
+            setTimeout(function() {
+                for (var i = 0; i < alerts.length; i++) {
+                    var closeBtn = alerts[i].querySelector('[data-dismiss="alert"]');
+                    if (closeBtn) { closeBtn.click(); }
+                }
+            }, 5000);
+        })();
+    </script>
 {% endblock %}

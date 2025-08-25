@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from kat import settings
 from main.forms import FeedbackForm, SubscribeForm
-from main.models import Feedback, Subscriber, Post, ProductInfo
+from main.models import Feedback, Subscriber, Post, ProductInfo, ContactLink
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 logger = logging.getLogger(__name__)
@@ -79,10 +79,11 @@ def contacts(request):
                 except:
                     logger.error("Невозможно отправить e-mail сообщение: ", sys.exc_info()[0])
                 is_send = True
+    links = ContactLink.objects.filter(is_active=True).order_by('order', 'id')
     return render(
         request,
         "main/contacts.html",
-        {"is_send": is_send}
+        {"is_send": is_send, "contact_links": links}
     )
 
 
