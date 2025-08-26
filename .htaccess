@@ -1,3 +1,6 @@
 RewriteEngine On
-RewriteCond %{HTTP_HOST} ^(.*\.)?domainowner.ru$
-RewriteRule ^(.*)$ http://kutepov-audio-tech.ru/$1 [R=301,QSA]
+
+# 1. Перенаправляем ЛЮБОЙ HTTP-запрос на HTTPS и правильный домен
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^kutepov-audio-tech\.ru$ [NC]
+RewriteRule ^(.*)$ https://kutepov-audio-tech.ru/$1 [R=301,L,QSA]
