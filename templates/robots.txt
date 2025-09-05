@@ -7,5 +7,5 @@ Disallow: /manual/
 User-agent: Yandex
 Disallow: /admin/
 Disallow: /manual/
-Sitemap: http://kutepov-audio-tech.ru/sitemap.xml
+Sitemap: https://kutepov-audio-tech.ru/sitemap.xml
 Host: kutepov-audio-tech.ru
