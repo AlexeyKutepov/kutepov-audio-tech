@@ -191,3 +191,15 @@ def product_details(request, url):
             "product": product_list[0]
         }
     )
+
+def privacy_policy(request):
+    """
+    Политика
+    :param request:
+    :return:
+    """
+    return render(
+        request,
+        "main/privacy-policy.html",
+        {}
+    )
